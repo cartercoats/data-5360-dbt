@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: oliver_landing
+    database: cartercoats
+    schema: oliver_dw_source
+    tables:
+      - name: employee
+      - name: product
+      - name: customer
+      - name: store
+      - name: orders
+      - name: orderline
+      
