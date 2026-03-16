@@ -13,3 +13,5 @@ models:
     description: "Store Dimension"
   - name: oliver_fact_sales
     description: "Sales Fact"
+  - name: oliver_fact_certification
+    description: "Employees recieving certifications"
