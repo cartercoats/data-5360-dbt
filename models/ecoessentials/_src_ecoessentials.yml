@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: eco_landing1
+    database: cartercoats
+    schema: TRANSACTIONALDB_LANDING_ECOESSENTIALS_TRANSACTIONAL_DB
+    tables:
+      - name: customer
+      - name: order
+      - name: order_line
+      - name: product
+      - name: promotional_campaign
+
+  - name: eco_landing2
+    database: cartercoats
+    schema: marketing_landing
+    tables:
+      - name: marketingemails
