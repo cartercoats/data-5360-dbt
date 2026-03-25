@@ -3,11 +3,14 @@ version: 2
 sources:
   - name: eco_landing1
     database: cartercoats
+    quoting:
+      schema: true
+      identifier: true
     schema: TRANSACTIONALDB_LANDING_ECOESSENTIALS_TRANSACTIONAL_DB
     tables:
       - name: customer
-      - name: order
-      - name: order_line
+      - name: ORDER
+      - name: ORDER_LINE
       - name: product
       - name: promotional_campaign
 
