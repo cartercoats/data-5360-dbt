@@ -3,15 +3,39 @@ version: 2
 models:
   - name: oliver_dim_customer
     description: "Customer Dimension"
+    columns:
+    - name: customer_key
+      tests:
+        - unique
   - name: oliver_dim_employee
     description: "Employee Dimension"
   - name: oliver_dim_date
     description: "Date Dimension"
   - name: oliver_dim_product
     description: "Product Dimension"
+    columns:
+      - name: product_name
+        tests:
+          - accepted_values:
+              values:
+                - "Marshmallows"
+                - "Gummy Bears"
+                - "Small Coffee"
+                - "Chocolate Bar"
+                - "Small Popcorn"
   - name: oliver_dim_store
     description: "Store Dimension"
   - name: oliver_fact_sales
     description: "Sales Fact"
   - name: oliver_fact_certification
     description: "Employees recieving certifications"
+    columns:
+      - name: employee_key
+        description: "A foreign key to the employee dimension"
+        tests:
+          - not_null
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('oliver_dim_customer') # the model you want to compare to
+              field: customer_key # the field on the model you want to compare to
