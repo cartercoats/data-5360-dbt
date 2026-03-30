@@ -27,6 +27,12 @@ models:
     description: "Store Dimension"
   - name: oliver_fact_sales
     description: "Sales Fact"
+    columns:
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('oliver_dim_customer') # the model you want to compare to
+              field: customer_key # the field on the model you want to compare to
   - name: oliver_fact_certification
     description: "Employees recieving certifications"
     columns:
@@ -34,8 +40,4 @@ models:
         description: "A foreign key to the employee dimension"
         tests:
           - not_null
-      - name: customer_key
-        tests:
-          - relationships:
-              to: ref('oliver_dim_customer') # the model you want to compare to
-              field: customer_key # the field on the model you want to compare to
+      

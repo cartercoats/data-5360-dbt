@@ -18,7 +18,7 @@ f.unit_price,
 f.quantity,
 (f.unit_price * f.quantity) line_total
 
-FROM {{ ref('fact_sales') }} f
+FROM {{ ref('oliver_fact_sales') }} f
 
 LEFT JOIN {{ ref('oliver_dim_customer') }} c
     ON f.customer_key = c.customer_key
