@@ -15,7 +15,3 @@ dollars_sold,
 unit_price
 FROM {{ source('oliver_landing', 'orderline') }} as ol
 JOIN {{ source('oliver_landing', 'orders') }} as o on ol.order_id = o.order_id
-JOIN {{ source('oliver_landing', 'orderline') }} as
-JOIN {{ source('oliver_landing', 'orderline') }} as
-JOIN {{ source('oliver_landing', 'orderline') }} as
-JOIN {{ source('oliver_landing', 'orderline') }} as
