@@ -17,7 +17,7 @@ customer_city,
 customer_state,
 customer_zip,
 customer_country
-FROM {{ source('eco_landing1', 'customer') }} as t 
+FROM {{ source('eco_landing1', 'CUSTOMER') }} as t 
 FULL OUTER JOIN {{ source('eco_landing2', 'marketingemails') }} as m
 on t.customer_first_name = m.subscriberfirstname
 and t.customer_last_name = m.subscriberlastname

@@ -8,11 +8,11 @@ sources:
       identifier: true
     schema: TRANSACTIONALDB_LANDING_ECOESSENTIALS_TRANSACTIONAL_DB
     tables:
-      - name: customer
+      - name: CUSTOMER
       - name: ORDER
       - name: ORDER_LINE
-      - name: product
-      - name: promotional_campaign
+      - name: PRODUCT
+      - name: PROMOTIONAL_CAMPAIGN
 
   - name: eco_landing2
     database: cartercoats
