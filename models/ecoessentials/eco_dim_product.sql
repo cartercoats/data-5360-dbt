@@ -9,4 +9,4 @@ SELECT
 product_id,
 product_name,
 product_type
-FROM {{ source('eco_landing1', 'product') }}
+FROM {{ source('eco_landing1', 'PRODUCT') }}

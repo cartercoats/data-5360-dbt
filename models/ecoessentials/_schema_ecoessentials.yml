@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: eco_dim_campaign
+    description: "Campaign Dimension"
+    columns:
+      - name: campaign_key
+        tests:
+          - unique
+  - name: eco_dim_customer
+    description: "Customer Dimension"
+    columns:
+      - name: customer_email
+        description: "Customer Email Address"
+        tests:
+          - not_null
+  - name: eco_dim_date
+    description: "Date Dimension"
+    columns:
+      - name: date_key
+        tests:
+          - unique
+  - name: eco_dim_email
+    description: "Email Dimension"
+    columns:
+      - name: email_name
+        description: "Name of Email"
+        tests:
+          - not_null
+  - name: eco_dim_eventtype
+    description: "Event Type Dimension"
+    columns:
+      - name: eventtype
+        tests:
+          - accepted_values:
+              values:
+                - "SENT"
+                - "OPEN"
+                - "CLICK"
+  - name: eco_dim_product
+    description: "Product Dimension"
+    columns:
+      - name: product_type
+        tests:
+          - accepted_values:
+              values:
+                - "utensil"
+                - "pot"
+                - "pan"
+                - "storage"
+                - "cutting_board"
+                - "accessory"
+  - name: eco_dim_time
+    description: "Time Dimension"
+    columns:
+      - name: time_key
+        tests:
+          - unique
+  - name: fact_emailevent
+    description: "Email Event Fact"
+    columns:
+      - name: customer_key
+        description: "A foreign key to the customer dimension"
+        tests:
+          - relationships:
+              to: ref('eco_dim_customer') # the model you want to compare to
+              field: customer_key # the field on the model you want to compare to
+  - name: fact_sale
+    description: |
+      Sales Fact.
+      The grain of this table is customer + product + date
+      Each record represents a quantity of a product being purchased by a customer on a given date.
+    columns:
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('eco_dim_customer') # the model you want to compare to
+              field: customer_key # the field on the model you want to compare to
